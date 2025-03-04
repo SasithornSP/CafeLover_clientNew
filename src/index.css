@@ -1,0 +1,10 @@
+@import "tailwindcss";
+@plugin "daisyui" {
+    themes: light --default, dark --prefersdark;
+  }
+
+  @theme static{
+    --color-primary-bg: #C67C4E;
+    --color-primary-btn: #3B2204;
+
+  }
