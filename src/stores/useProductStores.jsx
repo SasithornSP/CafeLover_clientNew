@@ -68,6 +68,15 @@ const useProductStore = create(persist((set,get)=>({
             return total + item.price * item.count
         },0)
     },
+    // getOrder:()=>{
+    //     try {
+    //     const rs = await createUserOrder()
+    //         set({category:rs.data})
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+   
+    // },
 
 }),
 {

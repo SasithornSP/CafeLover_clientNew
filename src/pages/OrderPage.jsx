@@ -1,14 +1,40 @@
-import { ChevronLeft } from "lucide-react";
+import { ChevronLeft, User } from "lucide-react";
 import { useState } from 'react'
 import { useNavigate } from 'react-router';
 import CartCard from "../component/CartCard";
+import useProductStore from "../stores/useProductStores";
+import axios from "axios";
+import  createUserOrder  from "../api/userOrderApi";
+import useUserStore from "../stores/userStores";
+
 
 function OrderPage() {
   // const actionRemoveProduct = useProductStore((state)=>state.actionRemoveProduct)
   const DineIn=[{id:1,text:'Dine in'},{id:2,text:'Take away'}]
   const [isDineIn, setIsDineIn] = useState(1);
   const hdlClickDineIn = (id) => setIsDineIn(id);
+  const carts = useProductStore((state)=>state.carts)
+  const token =useUserStore((state)=>state.token)
   const navigate = useNavigate();
+const hdlSaveCart = async()=>{
+  console.log(createUserOrder);
+ try {
+  const rs = await createUserOrder(token,carts)
+ console.log(rs);
+  console.log(carts);
+    navigate(`/checkout/${rs.data.order.id}`)
+ } catch (error) {
+  console.log(error);
+ }
+}
+// await createUserCart(token,{carts})
+// try((res)=>{
+
+//   console.log(res);
+// })
+// catch((err)=>{
+//   console.log(err);
+// })
 
   return (
     <div className="pt-16 pb-16  px-12 space-y-4 border-1">
@@ -44,13 +70,14 @@ function OrderPage() {
             <div>
                 Pay by QR
             </div>
-
+  
             <div className="flex gap-4">
-            <button 
-            // onClick={()=>actionRemoveProduct(item.id)}
-            className='mt-4 w-80 h-10 rounded-xl p-2 bg-red-600 text-white hover:shadow-md '>Cancel</button>
+              <button 
+              // onClick={()=>actionRemoveProduct(item.id)}
+              className='mt-4 w-80 h-10 rounded-xl p-2 bg-red-600 text-white hover:shadow-md '>Cancel</button>
+
             <button
-            onClick={() => navigate("/payment")}
+            onClick={hdlSaveCart}
             className='mt-4 w-full h-10 rounded-xl p-2 bg-green-600 text-white hover:shadow-md '>Order</button>
             </div>
         </div>

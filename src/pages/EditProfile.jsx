@@ -67,7 +67,7 @@ function EditProfile() {
       </div>
 
       {/* Edit profile*/}
-      <div className=" bg-primary-bg mr-50 ml-50 text-white flex flex-col items-center rounded-2xl gap-4 p-8">
+      <div className=" bg-primary-bg mr-20 ml-20 text-white flex flex-col items-center rounded-2xl gap-4 p-8">
       <h1 className="text-4xl font-semibold">My Profile</h1>
 
         <form className="flex flex-col  gap-4 w-full" onSubmit={hdlSubmit}>

@@ -7,6 +7,8 @@ import OrderPage from '../pages/OrderPage';
 import PaymentPage from '../pages/PaymentPage';
 import EditProfile from '../pages/EditProfile';
 import ReceiptPage from '../pages/ReceiptPage';
+import Checkout from '../payment/checkout';
+import CheckoutComplete from '../payment/CheckoutComplete';
 
 // import ProtectRoute from './ProtectRoute';
 
@@ -20,6 +22,8 @@ const AppRoutes = () => {
     <Route path="/OrderCart" element={<OrderPage/>} />
     <Route path="/payment" element={<PaymentPage/>} />
     <Route path="/receipt" element={<ReceiptPage/>} />
+    <Route path="/checkout/:id" element={<Checkout/>} />
+    <Route path="/complele/:session" element={<CheckoutComplete/>} />
 
     {/* Private [USER] */}
     {/* <Route path='user' element={<ProtectRoute el={<DetailPage/>} allows={["USER","ADMIN"]} />}>

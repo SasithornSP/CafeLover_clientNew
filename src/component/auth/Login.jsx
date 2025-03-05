@@ -76,7 +76,7 @@ function Login({hdlClick}) {
     if(role === 'ADMIN'){
       navigate('/admin')
     }else{
-      navigate('/menu')
+      navigate(-1)
     }
   }
   return (

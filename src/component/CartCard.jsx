@@ -6,7 +6,6 @@ const carts = useProductStore((state)=>state.carts)
 const actionRemoveProduct = useProductStore((state)=>state.actionRemoveProduct)
 const getTotalPrice = useProductStore((state)=>state.getTotalPrice)
 
-
 console.log(carts);
   return (
     <div>
@@ -26,7 +25,7 @@ console.log(carts);
                     <img src={item.image} className='w-16 h-16 bg-gray-600 rounded-md'/>
                    
                 {/* listitem */}
-                <div className='flex  bg-gray-100 '>
+                <div className='flex '>
                     <div>
                     <p className='text-xl font-bold '>{item.name}</p>
                     <p className='text-sm'>ความหวาน {item.sweetnessLevel} </p>

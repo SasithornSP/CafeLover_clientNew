@@ -1,13 +1,15 @@
-import { ChevronLeft, Minus, Plus } from "lucide-react";
+import { ChevronLeft, Link, Minus, Plus } from "lucide-react";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import { Sweetness } from "../component/Sweetness";
 import useUserStore from "../stores/userStores";
 import useProductStore from "../stores/useProductStores";
+import Login from "../component/auth/Login";
 
 function DetailPage() {
   const data = JSON.parse(localStorage.getItem("detailMenu"));
   const [dataMenu, setDataMenu] = useState(data);
+  const user = useUserStore((state) => state.user);
   const navigate = useNavigate();
 
   // const [active, setActive] = useState(0);
@@ -33,8 +35,7 @@ function DetailPage() {
 
   console.log(cart);
 
-
-//   console.log("Date menu:", dataMenu);
+  //   console.log("Date menu:", dataMenu);
   const [count, setCount] = useState(1);
   const hdlClickCount = (num) => {
     // actionUpdateQuantity(item.id,item.count-1)
@@ -57,17 +58,17 @@ function DetailPage() {
     navigate("/OrderCart");
     if (cart.length > 0) {
       const sameItemIndx = cart.findIndex(
-        (item) => item.productId === dataMenu.id && item.sweetnessLevel === isSweetness
+        (item) =>
+          item.productId === dataMenu.id && item.sweetnessLevel === isSweetness
       );
 
       if (sameItemIndx !== -1) {
         console.log("Same sweetness index: ", sameItemIndx);
-            cart[sameItemIndx].count++
-            setCarts([...cart])
-            return
+        cart[sameItemIndx].count++;
+        setCarts([...cart]);
+        return;
       }
     }
-  
 
     console.log("sweet", isSweetness);
     console.log("detail", detailProduct);
@@ -84,7 +85,7 @@ function DetailPage() {
     // const cart =JSON.parse(localStorage.getItem("cart")) || [];
     // const newCart =[...cart,{...dataMenu,count}];
     // localStorage.setItem("cart",JSON.stringify(newCart));
-  
+
     // const cartlocal =JSON.parse(localStorage.getItem("cart"))
     // console.log("cartlocal");
   };
@@ -155,7 +156,7 @@ function DetailPage() {
           placeholder="E.g No veggies"
         ></textarea>
       </div>
-
+ 
       {/* add to ... */}
       <div className="flex  pb-6 gap-4">
         <div className="flex text-xl gap-2">
@@ -175,14 +176,24 @@ function DetailPage() {
           </div>
         </div>
         {/* add to basket*/}
-
-        <button
-          className="flex justify-between w-full h-10 rounded-xl p-2 bg-primary-bg text-white hover:shadow-md hover:scale-105"
-          onClick={() => hdlClickAddToCart()}
-        >
-          <span>Add basket</span>
-          <span>฿ {(dataMenu.price * count).toLocaleString()}</span>
-        </button>
+        {user ? (
+         
+            <button
+              className="flex justify-between w-full h-10 rounded-xl p-2 bg-primary-bg text-white hover:shadow-md hover:scale-105"
+              onClick={() => hdlClickAddToCart()}
+            >
+              <span>Add basket</span>
+              <span>฿ {(dataMenu.price * count).toLocaleString()}</span>
+            </button>
+         
+        ) : (
+          
+            <button
+              className="flex justify-between w-full h-10 rounded-xl p-2 bg-primary-bg text-white hover:shadow-md hover:scale-105"
+              onClick={() => navigate(<Login/>)}
+            ></button>
+         
+        )}
       </div>
     </div>
   );
