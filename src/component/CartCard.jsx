@@ -1,10 +1,12 @@
 import React from 'react'
 // import useUserStore from '../stores/userStores'
 import useProductStore from "../stores/useProductStores";
+import { useNavigate } from 'react-router';
 function CartCard() {
 const carts = useProductStore((state)=>state.carts)
 const actionRemoveProduct = useProductStore((state)=>state.actionRemoveProduct)
 const getTotalPrice = useProductStore((state)=>state.getTotalPrice)
+const navigate = useNavigate();
 
 console.log(carts);
   return (
@@ -14,8 +16,7 @@ console.log(carts);
         <div className='p-2 bg-gray-100'>
 
             {/* Card */}
-            {carts.map((item,i)=>
-           
+            {carts.map((item,i)=>           
             <div key={item.id} className=' bg-white p-2 mb-2 rounded-md shadow-md'>
                 {/* row1 */}
             <div className='flex justify-between mb-2 '> 
@@ -39,7 +40,7 @@ console.log(carts);
                 <div className='flex justify-end'>{item.count}</div>
                 <div className='flex gap-2'>
                     <button 
-                    onClick={() => navigate("/detail/:name")}
+                    onClick={() => navigate("/detail/" + item.name)}
                     className='bg-amber-600 rounded-xl px-2
                      text-white text-sm hover:shadow-md  hover:scale-105'>Edit</button>
                     <button 

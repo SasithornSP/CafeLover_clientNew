@@ -1,4 +1,4 @@
-import { ChevronLeft, User } from "lucide-react";
+import { ChevronLeft } from "lucide-react";
 import { useState } from 'react'
 import { useNavigate } from 'react-router';
 import CartCard from "../component/CartCard";
@@ -16,11 +16,12 @@ function OrderPage() {
   const carts = useProductStore((state)=>state.carts)
   const token =useUserStore((state)=>state.token)
   const navigate = useNavigate();
-const hdlSaveCart = async()=>{
+
+  const hdlSaveCart = async()=>{
   console.log(createUserOrder);
  try {
   const rs = await createUserOrder(token,carts)
- console.log(rs);
+  console.log(rs);
   console.log(carts);
     navigate(`/checkout/${rs.data.order.id}`)
  } catch (error) {
@@ -73,6 +74,7 @@ const hdlSaveCart = async()=>{
   
             <div className="flex gap-4">
               <button 
+              onClick={() => navigate("/menu")}
               // onClick={()=>actionRemoveProduct(item.id)}
               className='mt-4 w-80 h-10 rounded-xl p-2 bg-red-600 text-white hover:shadow-md '>Cancel</button>
 
