@@ -19,7 +19,7 @@ function Menu() {
   const getTotalPrice = useProductStore((state) => state.getTotalPrice);
   const carts = useProductStore((state) => state.carts);
   const actionProfile = useUserStore((state)=>state.actionProfile)
-
+  const isLoggedIn = !!user && !!Object.keys(user).length;
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   console.log(products);

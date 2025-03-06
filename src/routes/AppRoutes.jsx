@@ -24,14 +24,14 @@ function AppRoutes() {
       <Route path="/menu" element={<Menu />} />
       <Route path="/detail/:name" element={<DetailPage />} />
         <Route path="orderCart" element={<OrderPage />} />
+        <Route path="editProfile" element={<EditProfile />} />
+        <Route path="payment" element={<PaymentPage />} />
+        <Route path="checkout/:id" element={<Checkout />} />
 
       {/* Private Routes for Users */}
       <Route path="user" element={<ProtectRoute el={<HomePage/>} allows={["USER", "ADMIN"]} />}>
         <Route index element={<Menu/>} />
-        <Route path="editProfile" element={<EditProfile />} />
-        <Route path="payment" element={<PaymentPage />} />
         <Route path="receipt" element={<ReceiptPage />} />
-        <Route path="checkout/:id" element={<Checkout />} />
         <Route path="complete/:session" element={<CheckoutComplete />} />
       </Route>
 
