@@ -56,7 +56,7 @@ const useUserStore = create(persist((set, get) => ({
     
     logout: () => {
         set({ user: null, token: "" });
-        localStorage.removeItem('state');
+        // localStorage.removeItem('state');
     }
 }), {
     name: 'user-store',

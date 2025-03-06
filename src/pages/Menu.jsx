@@ -57,6 +57,10 @@ function Menu() {
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
   };
+ const hdlLogout =()=>{
+  logout()
+  navigate('/')
+ }
 
   return (
     <div className="min-w-screen min-h-screen relative">
@@ -121,11 +125,11 @@ function Menu() {
 
               <li>
                 <button
-                  onClick={() => navigate("/")}
+                 onClick={hdlLogout}
                   className="flex items-center p-2 w-full rounded-md hover:bg-[#313131] transition-colors"
                 >
                   <LogOut size={20} className="mr-3" />
-                  <span>{logout}Log out</span>
+                  <span >Log out</span>
                 </button>
               </li>
             </ul>

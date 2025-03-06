@@ -20,13 +20,13 @@ function AppRoutes() {
   return (
     <Routes>
       {/* Public Routes */}
-      <Route path="/" element={<Layout/>} />
+      <Route path="/" element={<HomePage/>} />
       <Route path="/menu" element={<Menu />} />
       <Route path="/detail/:name" element={<DetailPage />} />
         <Route path="orderCart" element={<OrderPage />} />
 
       {/* Private Routes for Users */}
-      <Route path="user" element={<ProtectRoute el={<Layout/>} allows={["USER", "ADMIN"]} />}>
+      <Route path="user" element={<ProtectRoute el={<HomePage/>} allows={["USER", "ADMIN"]} />}>
         <Route index element={<Menu/>} />
         <Route path="editProfile" element={<EditProfile />} />
         <Route path="payment" element={<PaymentPage />} />
