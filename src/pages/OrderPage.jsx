@@ -15,6 +15,7 @@ function OrderPage() {
   const hdlClickDineIn = (id) => setIsDineIn(id);
   const carts = useProductStore((state)=>state.carts)
   const token =useUserStore((state)=>state.token)
+  const setCarts = useProductStore((state)=>state.setCarts)
   const navigate = useNavigate();
 
   const hdlSaveCart = async()=>{
@@ -23,7 +24,9 @@ function OrderPage() {
   const rs = await createUserOrder(token,carts)
   console.log(rs);
   console.log(carts);
-    navigate(`/checkout/${rs.data.order.id}`)
+  navigate(`/checkout/${rs.data.order.id}`)
+  setCarts([])
+
  } catch (error) {
   console.log(error);
  }
@@ -69,7 +72,7 @@ function OrderPage() {
         <div className='flex flex-col '>
             {/* payment */}
             <div>
-                Pay by QR
+                {/* Pay by QR */}
             </div>
   
             <div className="flex gap-4">

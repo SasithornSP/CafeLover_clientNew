@@ -26,8 +26,8 @@ const useUserStore = create(persist((set, get) => ({
             throw error;
         }
     },
-    
-    actionProfile: async () => {
+    // ดึงข้อมูลโปรไฟล์ผู้ใช้
+        actionProfile: async () => {
         try {
             const rs = await authApi.currentUser();
             set({ user: rs.data });
@@ -37,9 +37,10 @@ const useUserStore = create(persist((set, get) => ({
             return { user: null };
         }
     },
+    // อัปเดตข้อมูลผู้ใช้
         actionUpdateProfile: async (data) => {
         try {
-            const rs = await authApi.login(data);
+            const rs = await authApi.updateProfile(data);
             const { token, payload } = rs.data;
             
             set({ 
@@ -49,14 +50,14 @@ const useUserStore = create(persist((set, get) => ({
             
             return { token, user: payload };
         } catch (error) {
-            console.error("Login failed:", error);
+            console.error("update failed:", error);
             throw error;
         }
     },
     
     logout: () => {
         set({ user: null, token: "" });
-        // localStorage.removeItem('state');
+        localStorage.removeItem('user-store');
     }
 }), {
     name: 'user-store',

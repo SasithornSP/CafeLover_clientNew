@@ -9,6 +9,7 @@ import { Axios, AxiosError } from "axios";
 import useUserStore from "../../stores/userStores";
 import { useNavigate } from "react-router";
 import BtnForm from "./btnForm";
+import InputFormpassword from "./InFormPassword";
 
 
 const initInput = {
@@ -31,7 +32,6 @@ function Login({hdlClick}) {
   };
   const hdlSubmit = async (e) => {
 
-    
     try {
       e.preventDefault();
       console.log(input);
@@ -87,15 +87,17 @@ function Login({hdlClick}) {
         <InputForm
           nameForm="Email address"
           icon={EmailIcon}
+          type={typeInput}
           nameInput="email"
           handleChange={hdlChange}
           valueInput={input.email}
           placeholderInput="Enter your Email"
           error={errorInput.email}
         />
-        <InputForm
+        <InputFormpassword
           nameForm="Password"
           icon={PasswordIcon}
+          type={typeInput}
           nameInput="password"
           handleChange={hdlChange}
           valueInput={input.password}

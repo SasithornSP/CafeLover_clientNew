@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import InputForm from "./InputForm";
+import InputFormpassword from "./InFormPassword";
 import { EmailIcon, PasswordIcon, PhoneIcon, UserIcon } from "../../icon";
 import { loginSchema, registerSchema } from "../../utils/validators";
 import { toast } from "react-toastify";
@@ -73,6 +74,7 @@ function Register({hdlClick}) {
           <InputForm
             nameForm="Firstname"
             icon={UserIcon}
+            type={typeInput}
             nameInput="firstName"
             handleChange={hdlChange}
             valueInput={input.firstName}
@@ -82,6 +84,7 @@ function Register({hdlClick}) {
           <InputForm
             nameForm="Lastname"
             icon={UserIcon}
+            type={typeInput}
             nameInput="lastName"
             handleChange={hdlChange}
             valueInput={input.lastName}
@@ -92,6 +95,7 @@ function Register({hdlClick}) {
         <InputForm
           nameForm="Phone number"
           icon={PhoneIcon}
+          type={typeInput}
           nameInput="mobile"
           handleChange={hdlChange}
           valueInput={input.mobile}
@@ -101,24 +105,27 @@ function Register({hdlClick}) {
         <InputForm
           nameForm="Email address"
           icon={EmailIcon}
+          type={typeInput}
           nameInput="email"
           handleChange={hdlChange}
           valueInput={input.email}
           placeholderInput="Enter your Email"
           error={errorInput.email}
         />
-        <InputForm
+        <InputFormpassword
           nameForm="Password"
           icon={PasswordIcon}
+          type={typeInput}
           nameInput="password"
           handleChange={hdlChange}
           valueInput={input.password}
           placeholderInput="Enter your Password"
           error={errorInput.password}
         />
-        <InputForm
+        <InputFormpassword 
           nameForm="ConfirmPassword"
           icon={PasswordIcon}
+          type={typeInput}
           nameInput="confirmpassword"
           handleChange={hdlChange}
           valueInput={input.confirmpassword}

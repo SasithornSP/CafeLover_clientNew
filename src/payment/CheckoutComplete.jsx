@@ -2,7 +2,7 @@ import React from 'react'
 
 function CheckoutComplete() {
   return (
-    <div>checkoutComplele</div>
+    <div>checkoutComplete</div>
   )
 }
 

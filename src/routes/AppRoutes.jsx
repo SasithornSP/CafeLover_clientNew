@@ -9,7 +9,7 @@ import EditProfile from '../pages/EditProfile';
 import ReceiptPage from '../pages/ReceiptPage';
 import Checkout from '../payment/checkout';
 import CheckoutComplete from '../payment/CheckoutComplete';
-import Layout from '../layout/Layout';
+// import Layout from '../layout/Layout';
 // import Dashboard from '../pages/admin/Dashboard';
 // import Manage from '../pages/admin/Manage';
 // import LayoutAdmin from '../layouts/LayoutAdmin';
@@ -46,34 +46,5 @@ function AppRoutes() {
     </Routes>
   );
 }
-
-
-// const AppRoutes = () => {
-//   return (
-  
-//   <Routes>
-//     <Route path="/" element={<HomePage/>} />
-//     <Route path="/menu" element={<Menu/>} />
-//     <Route path="/detail/:name" element={<DetailPage/>} />
-//     <Route path="/OrderCart" element={<OrderPage/>} />
-//     <Route path="/payment" element={<PaymentPage/>} />
-//     <Route path="/receipt" element={<ReceiptPage/>} />
-//     <Route path="/checkout/:id" element={<Checkout/>} />
-//     <Route path="/complele/:session" element={<CheckoutComplete/>} />
-
-//     Private [USER]
-//     <Route path='user' element={<ProtectRoute el={<DetailPage/>} allows={["USER","ADMIN"]} />}>
-//     <Route index element={<HomeUser/>} /></Route>
-//     <Route path='/editProfile' element={<EditProfile/>}/>
-
-//     Private [ADMIN]
-//     <Route path='admin' element={<ProtectRoute el={<LayoutAdmin/>} allows={["ADMIN"]} />}>
-//     <Route index element={<Dashboard/>} />
-//     <Route path='manage' element={<Manage/>} /></Route>
-    
-//   </Routes>
-  
-//   );
-// };
 
 export default AppRoutes;

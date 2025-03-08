@@ -1,6 +1,6 @@
 import React from 'react'
 
-function InputForm({icon:Icon,nameForm, typeInput='text',nameInput,handleChange,valueInput,placeholderInput,error}) {
+function InputFormpassword({icon:Icon,nameForm, typeInput='password',nameInput,handleChange,valueInput,placeholderInput,error}) {
   return (
    <div>
     <p>{nameForm}</p>
@@ -18,4 +18,4 @@ function InputForm({icon:Icon,nameForm, typeInput='text',nameInput,handleChange,
   )
 }
 
-export default InputForm
+export default InputFormpassword
