@@ -7,8 +7,8 @@ export const actionCheckout =async(token,id)=>{
         }
     })
 }
-export const actionCheckoutStatus =async(token,id)=>{
-    return await axios.post('http://localhost:8900/payment/checkout',{id},{
+export const actionCheckoutStatus =async(token,session)=>{
+    return await axios.post('http://localhost:8900/payment/checkout-status/'+session,{
         headers:{
             Authorization: `Bearer ${token}`
         }

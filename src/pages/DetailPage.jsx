@@ -7,7 +7,7 @@ import useProductStore from "../stores/useProductStores";
 // import Login from "../component/auth/Login";
 
 function DetailPage() {
-  const data = JSON.parse(localStorage.getItem("detailMenu"));
+  const data = JSON.parse(localStorage.getItem("detailMenu")) || {};
   const [dataMenu, setDataMenu] = useState(data);
   const user = useUserStore((state) => state.user);
   const navigate = useNavigate();
@@ -29,7 +29,7 @@ function DetailPage() {
   };
 
   const hdlClickAddToCart = () => {
-    navigate("/OrderCart");
+    navigate("/user/OrderCart");
     if (cart.length > 0) {
       const sameItemIndex = cart.findIndex(
         (item) =>
@@ -59,7 +59,7 @@ function DetailPage() {
     <div className="pt-16 px-12 space-y-4">
       {/* Detail */}
       <div className="flex items-center gap-4 mb-8">
-        <div onClick={() => navigate("/menu")} className="cursor-pointer">
+        <div onClick={() => navigate("/user/menu")} className="cursor-pointer">
           <ChevronLeft />
         </div>
         <h1 className="flex-1 text-2xl text-center">Detail</h1>

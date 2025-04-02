@@ -4,7 +4,6 @@ import { EmailIcon, PasswordIcon } from "../../icon";
 import { loginSchema } from "../../utils/validators";
 import { toast } from "react-toastify";
 import { ZodError } from "zod";
-import { Link, Loader } from "lucide-react";
 import { Axios, AxiosError } from "axios";
 import useUserStore from "../../stores/userStores";
 import { useNavigate } from "react-router";
@@ -25,6 +24,13 @@ function Login({hdlClick}) {
   const [isLoading, setIsLoading] = useState(false);
 
   const navigate =useNavigate()
+  const roleRedire = (role) => {
+    if (role === "ADMIN") {
+      navigate("/admin");
+    } else {
+      navigate("/user/menu");
+    }
+  };
 
   const hdlChange = (e) => {
     setInput((prv) => ({ ...prv, [e.target.name]: e.target.value }));
@@ -44,11 +50,11 @@ function Login({hdlClick}) {
       console.log('role',role);
 
       toast.success("Login successful");
-
       setInput(initInput);
-      navigate("/menu")
-      document.getElementById("my_modal_2").close();
 
+      document.getElementById("my_modal_2").close();
+      roleRedire(role)
+      navigate("/user/menu")
       console.log(input);
     } catch (error) {
       console.log(error);
@@ -72,13 +78,6 @@ function Login({hdlClick}) {
     }
   };
 
-  const roleRedire =(role)=>{
-    if(role === 'ADMIN'){
-      navigate('/admin')
-    }else{
-      navigate(-1)
-    }
-  }
   return (
     <div className=" bg-primary-bg text-white flex flex-col items-center gap-4 p-8">
       <h1 className="text-4xl ">Cafe Login</h1>
@@ -87,7 +86,7 @@ function Login({hdlClick}) {
         <InputForm
           nameForm="Email address"
           icon={EmailIcon}
-          type={typeInput}
+          type={input.type}
           nameInput="email"
           handleChange={hdlChange}
           valueInput={input.email}
@@ -97,7 +96,7 @@ function Login({hdlClick}) {
         <InputFormpassword
           nameForm="Password"
           icon={PasswordIcon}
-          type={typeInput}
+          type={input.type}
           nameInput="password"
           handleChange={hdlChange}
           valueInput={input.password}

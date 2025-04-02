@@ -74,7 +74,7 @@ function Register({hdlClick}) {
           <InputForm
             nameForm="Firstname"
             icon={UserIcon}
-            type={typeInput}
+            type={input.type}
             nameInput="firstName"
             handleChange={hdlChange}
             valueInput={input.firstName}
@@ -84,7 +84,7 @@ function Register({hdlClick}) {
           <InputForm
             nameForm="Lastname"
             icon={UserIcon}
-            type={typeInput}
+            type={input.type}
             nameInput="lastName"
             handleChange={hdlChange}
             valueInput={input.lastName}
@@ -95,7 +95,7 @@ function Register({hdlClick}) {
         <InputForm
           nameForm="Phone number"
           icon={PhoneIcon}
-          type={typeInput}
+          type={input.type}
           nameInput="mobile"
           handleChange={hdlChange}
           valueInput={input.mobile}
@@ -105,7 +105,7 @@ function Register({hdlClick}) {
         <InputForm
           nameForm="Email address"
           icon={EmailIcon}
-          type={typeInput}
+          type={input.type}
           nameInput="email"
           handleChange={hdlChange}
           valueInput={input.email}
@@ -115,7 +115,7 @@ function Register({hdlClick}) {
         <InputFormpassword
           nameForm="Password"
           icon={PasswordIcon}
-          type={typeInput}
+          type={input.type}
           nameInput="password"
           handleChange={hdlChange}
           valueInput={input.password}
@@ -125,7 +125,7 @@ function Register({hdlClick}) {
         <InputFormpassword 
           nameForm="ConfirmPassword"
           icon={PasswordIcon}
-          type={typeInput}
+          type={input.type}
           nameInput="confirmpassword"
           handleChange={hdlChange}
           valueInput={input.confirmpassword}

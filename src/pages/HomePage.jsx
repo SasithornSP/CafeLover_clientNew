@@ -1,12 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Login from "../component/auth/Login";
 import Register from "../component/auth/register";
 import { HomeIcon } from "../icon";
 import { useNavigate } from "react-router";
+import useUserStore from "../stores/userStores";
 
 function HomePage() {
   const [isClick, setIsClick] = useState(true);
 
+  const user = useUserStore((state) => state.user);
+  // console.log('user', user)
+  useEffect(() => {
+    if (user) {
+      navigate("/user/menu");
+    }
+  })
   const navigate = useNavigate();
 
   const hdlClick = () => {

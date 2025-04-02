@@ -51,7 +51,7 @@ function Menu() {
   });
 
   const hdlClickSelect = (data) => {
-    navigate(`/detail/${data.name}`);
+    navigate(`/user/detail/${data.name}`);
     localStorage.setItem("detailMenu", JSON.stringify(data));
   };
   const toggleSidebar = () => {

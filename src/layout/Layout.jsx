@@ -5,7 +5,8 @@ import { Outlet } from "react-router";
 
 function Layout() {
   return (
-    <div>
+    <div >
+      {/* <h1 className="text-2xl font-bold">User Dashboard</h1> */}
       {/* <MainNav /> */}
       {/* <Menu/> */}
       <Outlet />

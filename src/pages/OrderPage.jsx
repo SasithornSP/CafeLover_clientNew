@@ -24,7 +24,7 @@ function OrderPage() {
   const rs = await createUserOrder(token,carts)
   console.log(rs);
   console.log(carts);
-  navigate(`/checkout/${rs.data.order.id}`)
+  navigate(`/user/checkout/${rs.data.order.id}`)
   setCarts([])
 
  } catch (error) {
@@ -44,7 +44,7 @@ function OrderPage() {
     <div className="pt-16 pb-16  px-12 space-y-4 border-1">
       {/* Detail */}
       <div className="flex items-center gap-4 mb-8">
-        <div onClick={() => navigate("/menu")} className="cursor-pointer">
+        <div onClick={() => navigate("/user/menu")} className="cursor-pointer">
           <ChevronLeft />
         </div>
         <h1 className="flex-1 text-2xl font-bold text-center ">Order</h1>
@@ -77,7 +77,7 @@ function OrderPage() {
   
             <div className="flex gap-4">
               <button 
-              onClick={() => navigate("/menu")}
+              onClick={() => navigate("/user/menu")}
               // onClick={()=>actionRemoveProduct(item.id)}
               className='mt-4 w-80 h-10 rounded-xl p-2 bg-red-600 text-white hover:shadow-md '>Cancel</button>
 

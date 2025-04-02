@@ -8,7 +8,7 @@ function CardMenu({item,hdlClickSelect}) {
     <div onClick={()=>hdlClickSelect(item)} className='w-full cursor-pointer flex flex-col gap-4  border-gray-400 p-2 rounded-2xl hover:shadow-2xl'>
        <div className='aspect-square rounded-xl overflow-hidden'>
         <img className='w-full h-full object-cover  hover:scale-110 duration-300' src={item.image} alt={item.name}/>
-       </div>
+       </div>   
 
        <div>
         <h1 className='font-bold text-2xl'>{item.name}</h1>
